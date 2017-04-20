@@ -1,25 +1,25 @@
-#pragma once
+п»ї#pragma once
 
-//заполнение контейнера из файла
+//Р·Р°РїРѕР»РЅРµРЅРёРµ РєРѕРЅС‚РµР№РЅРµСЂР° РёР· С„Р°Р№Р»Р°
 std::list<double>& fill_container_with_numbers(std::fstream& file);
 
-//модификация контейнера
+//РјРѕРґРёС„РёРєР°С†РёСЏ РєРѕРЅС‚РµР№РЅРµСЂР°
 void modify(std::list<double>& list);
 
-//модификация части контейнера
+//РјРѕРґРёС„РёРєР°С†РёСЏ С‡Р°СЃС‚Рё РєРѕРЅС‚РµР№РЅРµСЂР°
 void modify(std::list<double>& list, std::list<double>::iterator first, std::list<double>::iterator last);
 
-//функция для модификации через transform
+//С„СѓРЅРєС†РёСЏ РґР»СЏ РјРѕРґРёС„РёРєР°С†РёРё С‡РµСЂРµР· transform
 void modify_transform(std::list<double>& list);
 
-//функция для модификации через for_each
+//С„СѓРЅРєС†РёСЏ РґР»СЏ РјРѕРґРёС„РёРєР°С†РёРё С‡РµСЂРµР· for_each
 void modify_foreach(std::list<double>& list);
 
-//функция суммирования контейнера
+//С„СѓРЅРєС†РёСЏ СЃСѓРјРјРёСЂРѕРІР°РЅРёСЏ РєРѕРЅС‚РµР№РЅРµСЂР°
 double sum_container(std::list<double> list);
 
-//вычисление среднего арифмитического контейнера
+//РІС‹С‡РёСЃР»РµРЅРёРµ СЃСЂРµРґРЅРµРіРѕ Р°СЂРёС„РјРёС‚РёС‡РµСЃРєРѕРіРѕ РєРѕРЅС‚РµР№РЅРµСЂР°
 double avg_container(std::list<double> list);
 
-//функция для демонстрация контейнера
+//С„СѓРЅРєС†РёСЏ РґР»СЏ РґРµРјРѕРЅСЃС‚СЂР°С†РёСЏ РєРѕРЅС‚РµР№РЅРµСЂР°
 void show_container(std::list<double> list);

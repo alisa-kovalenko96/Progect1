@@ -1,7 +1,7 @@
-#include "stdafx.h"
+п»ї#include "stdafx.h"
 #include "list_utils.h"
 
-//заполнение контейнера из файла
+//Р·Р°РїРѕР»РЅРµРЅРёРµ РєРѕРЅС‚РµР№РЅРµСЂР° РёР· С„Р°Р№Р»Р°
 std::list<double>& fill_container_with_numbers(std::fstream& file) {
     std::list<double>* list = new std::list<double>();
     file.clear();
@@ -23,7 +23,7 @@ std::list<double>& fill_container_with_numbers(std::fstream& file) {
     return *list;
 }
 
-//функция по получению max
+//С„СѓРЅРєС†РёСЏ РїРѕ РїРѕР»СѓС‡РµРЅРёСЋ max
 double get_max(std::list<double>::iterator first, std::list<double>::iterator last) {
     double max = *first;
     for (std::list<double>::iterator it = first; it != last; ++it) {
@@ -34,7 +34,7 @@ double get_max(std::list<double>::iterator first, std::list<double>::iterator la
     return max;
 }
 
-//модификация контейнера
+//РјРѕРґРёС„РёРєР°С†РёСЏ РєРѕРЅС‚РµР№РЅРµСЂР°
 void modify(std::list<double>& list) {
     double last_max = get_max(list.begin(), list.end());
     for (std::list<double>::iterator it = list.begin(); it != list.end(); ++it) {
@@ -42,7 +42,7 @@ void modify(std::list<double>& list) {
     }
 }
 
-//модификация части контейнера
+//РјРѕРґРёС„РёРєР°С†РёСЏ С‡Р°СЃС‚Рё РєРѕРЅС‚РµР№РЅРµСЂР°
 void modify(std::list<double>& list, std::list<double>::iterator first, std::list<double>::iterator last) {
     double last_max = get_max(first, last);
     for (std::list<double>::iterator it = first; it != last; ++it) {
@@ -50,7 +50,7 @@ void modify(std::list<double>& list, std::list<double>::iterator first, std::lis
     }
 }
 
-//структура для модификации элементов через transform
+//СЃС‚СЂСѓРєС‚СѓСЂР° РґР»СЏ РјРѕРґРёС„РёРєР°С†РёРё СЌР»РµРјРµРЅС‚РѕРІ С‡РµСЂРµР· transform
 struct transform_functor {
     transform_functor(double last_max) : last_max1(last_max) {}
     double operator()(double x1) { return x1 - last_max1; }
@@ -59,13 +59,13 @@ private:
     double last_max1;
 };
 
-//функция для модификации через transform
+//С„СѓРЅРєС†РёСЏ РґР»СЏ РјРѕРґРёС„РёРєР°С†РёРё С‡РµСЂРµР· transform
 void modify_transform(std::list<double>& list) {
     double last_max = get_max(list.begin(), list.end());
     std::transform(list.begin(), list.end(), list.begin(), transform_functor(last_max));
 }
 
-//структура для модификации через for_each
+//СЃС‚СЂСѓРєС‚СѓСЂР° РґР»СЏ РјРѕРґРёС„РёРєР°С†РёРё С‡РµСЂРµР· for_each
 struct foreach_functor {
     foreach_functor(double last_max) : last_max1(last_max) {}
     void operator()(double &x1) { x1 = x1 - last_max1; }
@@ -74,13 +74,13 @@ private:
     double last_max1;
 };
 
-//функция для модификации через for_each
+//С„СѓРЅРєС†РёСЏ РґР»СЏ РјРѕРґРёС„РёРєР°С†РёРё С‡РµСЂРµР· for_each
 void modify_foreach(std::list<double>& list) {
     double last_max = get_max(list.begin(), list.end());
     std::for_each(list.begin(), list.end(), foreach_functor(last_max));
 }
 
-//функция суммирования контейнера
+//С„СѓРЅРєС†РёСЏ СЃСѓРјРјРёСЂРѕРІР°РЅРёСЏ РєРѕРЅС‚РµР№РЅРµСЂР°
 double sum_container(std::list<double> list) {
     double sum = 0;
     std::list<double>::iterator it = list.begin();
@@ -91,7 +91,7 @@ double sum_container(std::list<double> list) {
     return sum;
 }
 
-//вычисление среднего арифметического контейнера
+//РІС‹С‡РёСЃР»РµРЅРёРµ СЃСЂРµРґРЅРµРіРѕ Р°СЂРёС„РјРµС‚РёС‡РµСЃРєРѕРіРѕ РєРѕРЅС‚РµР№РЅРµСЂР°
 double avg_container(std::list<double> list) {
     double avg = 0;
     if (list.size() != 0) {
@@ -100,7 +100,7 @@ double avg_container(std::list<double> list) {
     return avg;
 }
 
-//функция для демонстрация контейнера
+//С„СѓРЅРєС†РёСЏ РґР»СЏ РґРµРјРѕРЅСЃС‚СЂР°С†РёСЏ РєРѕРЅС‚РµР№РЅРµСЂР°
 void show_container(std::list<double> list) {
     std::list<double>::iterator it = list.begin();
     while (it != list.end()) {

@@ -1,5 +1,5 @@
-/* Коваленко Алиса Михайловна, 9 группа
-Задача 3С. Вычесть из каждого числа максимальное из чисел. */
+п»ї/* РљРѕРІР°Р»РµРЅРєРѕ РђР»РёСЃР° РњРёС…Р°Р№Р»РѕРІРЅР°, 9 РіСЂСѓРїРїР°
+Р—Р°РґР°С‡Р° 3РЎ. Р’С‹С‡РµСЃС‚СЊ РёР· РєР°Р¶РґРѕРіРѕ С‡РёСЃР»Р° РјР°РєСЃРёРјР°Р»СЊРЅРѕРµ РёР· С‡РёСЃРµР». */
 
 #include <stdlib.h>
 #include <time.h> 
@@ -17,21 +17,21 @@
 std::string file_name = "";
 std::fstream* file;
 
-//функция для отображения главного меню
+//С„СѓРЅРєС†РёСЏ РґР»СЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ РіР»Р°РІРЅРѕРіРѕ РјРµРЅСЋ
 void print_menu(std::list<double> list)
 {
 	system("cls");
-	std::cout << "1. Заполнение текстового файла числами" << std::endl;
-	std::cout << "2. Заполнение контейнера из файла" << std::endl;
-	std::cout << "3. Преобразование контейнера" << std::endl;
-	std::cout << "4. Сумма" << std::endl;
-	std::cout << "5. Среднее арифметическое" << std::endl;
-	std::cout << "6. Вывод на экран" << std::endl;
-	std::cout << "0. Выход" << std::endl;
-	if (list.size() == 0) { std::cout << "Файл не загружен. Некоторые действия недоступны." << std::endl; }
+	std::cout << "1. Р—Р°РїРѕР»РЅРµРЅРёРµ С‚РµРєСЃС‚РѕРІРѕРіРѕ С„Р°Р№Р»Р° С‡РёСЃР»Р°РјРё" << std::endl;
+	std::cout << "2. Р—Р°РїРѕР»РЅРµРЅРёРµ РєРѕРЅС‚РµР№РЅРµСЂР° РёР· С„Р°Р№Р»Р°" << std::endl;
+	std::cout << "3. РџСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёРµ РєРѕРЅС‚РµР№РЅРµСЂР°" << std::endl;
+	std::cout << "4. РЎСѓРјРјР°" << std::endl;
+	std::cout << "5. РЎСЂРµРґРЅРµРµ Р°СЂРёС„РјРµС‚РёС‡РµСЃРєРѕРµ" << std::endl;
+	std::cout << "6. Р’С‹РІРѕРґ РЅР° СЌРєСЂР°РЅ" << std::endl;
+	std::cout << "0. Р’С‹С…РѕРґ" << std::endl;
+	if (list.size() == 0) { std::cout << "Р¤Р°Р№Р» РЅРµ Р·Р°РіСЂСѓР¶РµРЅ. РќРµРєРѕС‚РѕСЂС‹Рµ РґРµР№СЃС‚РІРёСЏ РЅРµРґРѕСЃС‚СѓРїРЅС‹." << std::endl; }
 }
 
-//функция главного меню с возвратом выбора
+//С„СѓРЅРєС†РёСЏ РіР»Р°РІРЅРѕРіРѕ РјРµРЅСЋ СЃ РІРѕР·РІСЂР°С‚РѕРј РІС‹Р±РѕСЂР°
 int main_menu(std::list<double> list) {
 	std::string choice = "";
 	int choice_number = -1;
@@ -43,37 +43,37 @@ int main_menu(std::list<double> list) {
 	return choice_number;
 }
 
-//действие по суммированию контейнера
+//РґРµР№СЃС‚РІРёРµ РїРѕ СЃСѓРјРјРёСЂРѕРІР°РЅРёСЋ РєРѕРЅС‚РµР№РЅРµСЂР°
 void sum_container_action(std::list<double> list) {
 	system("cls");
 	if (list.size() == 0) {
-		std::cout << "Контейнер пуст." << std::endl;
+		std::cout << "РљРѕРЅС‚РµР№РЅРµСЂ РїСѓСЃС‚." << std::endl;
 	}
 	else {
 		show_container(list);
-		std::cout << "Сумма чисел в контейнере = " << sum_container(list) << std::endl;
+		std::cout << "РЎСѓРјРјР° С‡РёСЃРµР» РІ РєРѕРЅС‚РµР№РЅРµСЂРµ = " << sum_container(list) << std::endl;
 	}
 	system("pause");
 }
 
-//действие по вычислению среднего арифметического
+//РґРµР№СЃС‚РІРёРµ РїРѕ РІС‹С‡РёСЃР»РµРЅРёСЋ СЃСЂРµРґРЅРµРіРѕ Р°СЂРёС„РјРµС‚РёС‡РµСЃРєРѕРіРѕ
 void avg_container_action(std::list<double> list) {
 	system("cls");
 	if (list.size() == 0) {
-		std::cout << "Контейнер пуст." << std::endl;
+		std::cout << "РљРѕРЅС‚РµР№РЅРµСЂ РїСѓСЃС‚." << std::endl;
 	}
 	else {
 		show_container(list);
-		std::cout << "Среднее арифметическое чисел в контейнере = " << avg_container(list) << std::endl;
+		std::cout << "РЎСЂРµРґРЅРµРµ Р°СЂРёС„РјРµС‚РёС‡РµСЃРєРѕРµ С‡РёСЃРµР» РІ РєРѕРЅС‚РµР№РЅРµСЂРµ = " << avg_container(list) << std::endl;
 	}
 	system("pause");
 }
 
-//действие для демонстрации контейнера
+//РґРµР№СЃС‚РІРёРµ РґР»СЏ РґРµРјРѕРЅСЃС‚СЂР°С†РёРё РєРѕРЅС‚РµР№РЅРµСЂР°
 void show_container_action(std::list<double> list) {
 	system("cls");
 	if (list.size() == 0) {
-		std::cout << "Контейнер пуст!" << std::endl;
+		std::cout << "РљРѕРЅС‚РµР№РЅРµСЂ РїСѓСЃС‚!" << std::endl;
 	}
 	else {
 		show_container(list);
@@ -81,13 +81,13 @@ void show_container_action(std::list<double> list) {
 	system("pause");
 }
 
-//действие по заполнению файла
+//РґРµР№СЃС‚РІРёРµ РїРѕ Р·Р°РїРѕР»РЅРµРЅРёСЋ С„Р°Р№Р»Р°
 void fill_file_action() {
 	system("cls");
-	std::cout << "Выберите один из пунктов меню:" << std::endl;
-	std::cout << "1. Генерация файла через цикл." << std::endl;
-	std::cout << "2. Генерация файла через generate." << std::endl;
-	std::cout << "0. Выход." << std::endl;
+	std::cout << "Р’С‹Р±РµСЂРёС‚Рµ РѕРґРёРЅ РёР· РїСѓРЅРєС‚РѕРІ РјРµРЅСЋ:" << std::endl;
+	std::cout << "1. Р“РµРЅРµСЂР°С†РёСЏ С„Р°Р№Р»Р° С‡РµСЂРµР· С†РёРєР»." << std::endl;
+	std::cout << "2. Р“РµРЅРµСЂР°С†РёСЏ С„Р°Р№Р»Р° С‡РµСЂРµР· generate." << std::endl;
+	std::cout << "0. Р’С‹С…РѕРґ." << std::endl;
 	int choice_number = -1;
 	while ((choice_number < 0) || (choice_number > 2)) {
 		getChoice(0, 2, choice_number);
@@ -121,10 +121,10 @@ void fill_file_action() {
 	file_name = "";
 }
 
-//действие по заполнению контейнера
+//РґРµР№СЃС‚РІРёРµ РїРѕ Р·Р°РїРѕР»РЅРµРЅРёСЋ РєРѕРЅС‚РµР№РЅРµСЂР°
 void fill_container_action(std::list<double>& list) {
 	if (file_name == "") {
-		std::cout << "Введите имя файла (Пустая строка - отмена.):" << std::endl;
+		std::cout << "Р’РІРµРґРёС‚Рµ РёРјСЏ С„Р°Р№Р»Р° (РџСѓСЃС‚Р°СЏ СЃС‚СЂРѕРєР° - РѕС‚РјРµРЅР°.):" << std::endl;
 		std::getline(std::cin, file_name);
 		if (file_name == "") {
 			return;
@@ -137,22 +137,22 @@ void fill_container_action(std::list<double>& list) {
 	file_name = "";
 }
 
-//действие по модификации контейнера
+//РґРµР№СЃС‚РІРёРµ РїРѕ РјРѕРґРёС„РёРєР°С†РёРё РєРѕРЅС‚РµР№РЅРµСЂР°
 void modify_container_action(std::list<double> list) {
 	system("cls");
-	std::cout << "Выберите один из пунктов меню:" << std::endl;
-	std::cout << "1. Модификация через modify(list)." << std::endl;
-	std::cout << "2. Модификация через modify(first, last)." << std::endl;
-	std::cout << "3. Модификация через modify_transform(list)." << std::endl;
-	std::cout << "4. Модификация через modify_for_each(list)." << std::endl;
-	std::cout << "0. Выход." << std::endl;
+	std::cout << "Р’С‹Р±РµСЂРёС‚Рµ РѕРґРёРЅ РёР· РїСѓРЅРєС‚РѕРІ РјРµРЅСЋ:" << std::endl;
+	std::cout << "1. РњРѕРґРёС„РёРєР°С†РёСЏ С‡РµСЂРµР· modify(list)." << std::endl;
+	std::cout << "2. РњРѕРґРёС„РёРєР°С†РёСЏ С‡РµСЂРµР· modify(first, last)." << std::endl;
+	std::cout << "3. РњРѕРґРёС„РёРєР°С†РёСЏ С‡РµСЂРµР· modify_transform(list)." << std::endl;
+	std::cout << "4. РњРѕРґРёС„РёРєР°С†РёСЏ С‡РµСЂРµР· modify_for_each(list)." << std::endl;
+	std::cout << "0. Р’С‹С…РѕРґ." << std::endl;
 	int choice_number = -1;
 	while ((choice_number < 0) || (choice_number > 4)) {
 		getChoice(0, 4, choice_number);
 	}
-	std::cout << "Контейнер до модификации:" << std::endl;
+	std::cout << "РљРѕРЅС‚РµР№РЅРµСЂ РґРѕ РјРѕРґРёС„РёРєР°С†РёРё:" << std::endl;
 	show_container(list);
-	std::cout << "Контейнер после модификации:" << std::endl;
+	std::cout << "РљРѕРЅС‚РµР№РЅРµСЂ РїРѕСЃР»Рµ РјРѕРґРёС„РёРєР°С†РёРё:" << std::endl;
 	std::list<double> modified_list(list);
 	try {
 		switch (choice_number) {
@@ -164,13 +164,13 @@ void modify_container_action(std::list<double> list) {
 			int size = modified_list.size();
 			int begin = -1;
 			while ((begin < 1) || (begin > size)) {
-				std::cout << "Введите позицию начала изменения от 1 до " + std::to_string(size) << std::endl;
+				std::cout << "Р’РІРµРґРёС‚Рµ РїРѕР·РёС†РёСЋ РЅР°С‡Р°Р»Р° РёР·РјРµРЅРµРЅРёСЏ РѕС‚ 1 РґРѕ " + std::to_string(size) << std::endl;
 				getChoice(1, size, begin);
 			}
 
 			int end = -1;
 			while ((end < begin) || (end > size)) {
-				std::cout << "Введите позицию конца изменения от " + std::to_string(begin) + " до " + std::to_string(size) << std::endl;
+				std::cout << "Р’РІРµРґРёС‚Рµ РїРѕР·РёС†РёСЋ РєРѕРЅС†Р° РёР·РјРµРЅРµРЅРёСЏ РѕС‚ " + std::to_string(begin) + " РґРѕ " + std::to_string(size) << std::endl;
 				getChoice(begin, size, end);
 			}
 			std::list<double>::iterator first, last, it = modified_list.begin();
@@ -202,7 +202,7 @@ void modify_container_action(std::list<double> list) {
 	system("pause");
 }
 
-//выполнение пунктов меню
+//РІС‹РїРѕР»РЅРµРЅРёРµ РїСѓРЅРєС‚РѕРІ РјРµРЅСЋ
 void create_menu_actions(int choice, std::list<double>& list) {
 	switch (choice) {
 	case 1: {

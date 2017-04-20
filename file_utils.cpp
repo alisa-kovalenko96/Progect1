@@ -1,8 +1,8 @@
-#include "stdafx.h"
+п»ї#include "stdafx.h"
 #include "file_utils.h"
 #include "help_utils.h"
 
-//функция заполнения файла числами с использованием цикла
+//С„СѓРЅРєС†РёВ¤ Р·Р°РїРѕР»РЅРµРЅРёВ¤ С„Р°Р№Р»Р° С‡РёСЃР»Р°РјРё СЃ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµРј С†РёРєР»Р°
 std::fstream& fill_file_with_numbers(int n, int m, std::string filename)
 {
     srand(time(NULL));
@@ -17,7 +17,7 @@ std::fstream& fill_file_with_numbers(int n, int m, std::string filename)
     return *fout;
 }
 
-//структура для генерации рандомных чисел в диапазоне [-m, m]
+//СЃС‚СЂСѓРєС‚СѓСЂР° РґР»В¤ РіРµРЅРµСЂР°С†РёРё СЂР°РЅРґРѕРјРЅС‹С… С‡РёСЃРµР» РІ РґРёР°РїР°Р·РѕРЅРµ [-m, m]
 struct Random {
 public:
     Random(int m) { max = m; }
@@ -30,7 +30,7 @@ double Random::operator()() {
     return double((std::rand()) % (2 * max) - max);
 }
 
-//заполнение файла числами с использованием generate
+//Р·Р°РїРѕР»РЅРµРЅРёРµ С„Р°Р№Р»Р° С‡РёСЃР»Р°РјРё СЃ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµРј generate
 std::fstream& fill_file_with_numbers_generate(int n, int m, std::string filename)
 {
     srand(time(NULL));
@@ -44,21 +44,21 @@ std::fstream& fill_file_with_numbers_generate(int n, int m, std::string filename
     return *fout;
 }
 
-//функция для получения параметров для заполнения файла
+//С„СѓРЅРєС†РёВ¤ РґР»В¤ РїРѕР»СѓС‡РµРЅРёВ¤ РїР°СЂР°РјРµС‚СЂРѕРІ РґР»В¤ Р·Р°РїРѕР»РЅРµРЅРёВ¤ С„Р°Р№Р»Р°
 bool get_fill_params(std::string& file_name, int& size, int& max) {
-    std::cout << "Введите имя файла (если файл существует, он будет перезаписан. Пустая строка - отмена.):" << std::endl;
+    std::cout << "В¬РІРµРґРёС‚Рµ РёРјВ¤ С„Р°Р№Р»Р° (РµСЃР»Рё С„Р°Р№Р» СЃСѓС‰РµСЃС‚РІСѓРµС‚, РѕРЅ Р±СѓРґРµС‚ РїРµСЂРµР·Р°РїРёСЃР°РЅ. С•СѓСЃС‚Р°В¤ СЃС‚СЂРѕРєР° - РѕС‚РјРµРЅР°.):" << std::endl;
     std::getline(std::cin, file_name);
     if (file_name == "") {
         return false;
     }
     size = -1;
     while ((size < 1) || (size >= INT_MAX)) {
-        std::cout << "Введите количество чисел:" << std::endl;
+        std::cout << "В¬РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ С‡РёСЃРµР»:" << std::endl;
         getChoice(1, INT_MAX, size);
     }
     max = -1;
     while ((max < 1) || (max >= INT_MAX)) {
-        std::cout << "Введите правую границу для генерации чисел:" << std::endl;
+        std::cout << "В¬РІРµРґРёС‚Рµ РїСЂР°РІСѓСЋ РіСЂР°РЅРёС†Сѓ РґР»В¤ РіРµРЅРµСЂР°С†РёРё С‡РёСЃРµР»:" << std::endl;
         getChoice(1, INT_MAX, max);
     }
     return true;

@@ -1,14 +1,14 @@
-#include "stdafx.h"
+п»ї#include "stdafx.h"
 #include "help_utils.h"
 
-//функция для вывода сообщений
+//С„СѓРЅРєС†РёСЏ РґР»СЏ РІС‹РІРѕРґР° СЃРѕРѕР±С‰РµРЅРёР№
 void print_message(std::string msg)
 {
     std::cout << msg << std::endl;
     system("pause");
 }
 
-//функция получения одного из вариантов между min и max
+//С„СѓРЅРєС†РёСЏ РїРѕР»СѓС‡РµРЅРёСЏ РѕРґРЅРѕРіРѕ РёР· РІР°СЂРёР°РЅС‚РѕРІ РјРµР¶РґСѓ min Рё max
 void getChoice(int min, int max, int& choice_number) {
     std::string choice = "";
     try {
@@ -16,15 +16,15 @@ void getChoice(int min, int max, int& choice_number) {
         choice_number = std::stoi(choice);
         if ((choice_number < min) || (choice_number > max))
         {
-            print_message("Вы должны ввести число от " + std::to_string(min) + " до " + std::to_string(max) + "!");
+            print_message("Р’С‹ РґРѕР»Р¶РЅС‹ РІРІРµСЃС‚Рё С‡РёСЃР»Рѕ РѕС‚ " + std::to_string(min) + " РґРѕ " + std::to_string(max) + "!");
         }
     }
     catch (std::invalid_argument e)
     {
-        print_message("Вы должны ввести число!");
+        print_message("Р’С‹ РґРѕР»Р¶РЅС‹ РІРІРµСЃС‚Рё С‡РёСЃР»Рѕ!");
     }
     catch (std::out_of_range e)
     {
-        print_message("Выход за границы типа!");
+        print_message("Р’С‹С…РѕРґ Р·Р° РіСЂР°РЅРёС†С‹ С‚РёРїР°!");
     }
 }
