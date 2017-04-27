@@ -1,5 +1,12 @@
 ﻿#include "stdafx.h"
 #include "list_utils.h"
+#include "help_utils.h"
+
+void print_to_file(std::ofstream& file, std::list<double> list) {
+	for (std::list<double>::iterator it = list.begin(); it != list.end(); ++it) {
+		file << *it << std::endl;
+	}
+}
 
 //заполнение контейнера из файла
 std::list<double>& fill_container_with_numbers(std::fstream& file) {
@@ -20,6 +27,9 @@ std::list<double>& fill_container_with_numbers(std::fstream& file) {
             catch (std::exception e) {}
         }
     }
+	if (list->size() == 0) {
+		print_message("Cписок пуст.");
+	}
     return *list;
 }
 

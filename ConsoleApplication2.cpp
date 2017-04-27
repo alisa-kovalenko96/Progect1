@@ -28,7 +28,7 @@ void print_menu(std::list<double> list)
 	std::cout << "5. Среднее арифметическое" << std::endl;
 	std::cout << "6. Вывод на экран" << std::endl;
 	std::cout << "0. Выход" << std::endl;
-	if (list.size() == 0) { std::cout << "Файл не загружен. Некоторые действия недоступны." << std::endl; }
+	if (list.size() == 0) { std::cout << "Файл не найден." << std::endl; }
 }
 
 //функция главного меню с возвратом выбора
@@ -199,6 +199,15 @@ void modify_container_action(std::list<double> list) {
 		std::cout << e.what() << std::endl;
 	}
 	show_container(modified_list);
+	std::string filename;
+	std::cout << "Введите имя файла (пустая строка - отмена):" << std::endl;
+	std::getline(std::cin, filename);
+	if (filename != "") {
+		std::ofstream fout(filename);
+		if (fout.is_open()) {
+			print_to_file(fout, modified_list);
+		}
+	}
 	system("pause");
 }
 

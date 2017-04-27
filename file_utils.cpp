@@ -2,7 +2,7 @@
 #include "file_utils.h"
 #include "help_utils.h"
 
-//функци¤ заполнени¤ файла числами с использованием цикла
+//функция заполнения файла числами с использованием цикла
 std::fstream& fill_file_with_numbers(int n, int m, std::string filename)
 {
     srand(time(NULL));
@@ -17,7 +17,7 @@ std::fstream& fill_file_with_numbers(int n, int m, std::string filename)
     return *fout;
 }
 
-//структура дл¤ генерации рандомных чисел в диапазоне [-m, m]
+//структура для генерации рандомных чисел в диапазоне [-m, m]
 struct Random {
 public:
     Random(int m) { max = m; }
@@ -44,21 +44,21 @@ std::fstream& fill_file_with_numbers_generate(int n, int m, std::string filename
     return *fout;
 }
 
-//функци¤ дл¤ получени¤ параметров дл¤ заполнени¤ файла
+//функция для получения параметров для заполнения файла
 bool get_fill_params(std::string& file_name, int& size, int& max) {
-    std::cout << "¬ведите им¤ файла (если файл существует, он будет перезаписан. ѕуста¤ строка - отмена.):" << std::endl;
+    std::cout << "Введите имя файла (если файл существует, он будет перезаписан. пустая строка - отмена.):" << std::endl;
     std::getline(std::cin, file_name);
     if (file_name == "") {
         return false;
     }
     size = -1;
     while ((size < 1) || (size >= INT_MAX)) {
-        std::cout << "¬ведите количество чисел:" << std::endl;
+        std::cout << "Введите количество чисел:" << std::endl;
         getChoice(1, INT_MAX, size);
     }
     max = -1;
     while ((max < 1) || (max >= INT_MAX)) {
-        std::cout << "¬ведите правую границу дл¤ генерации чисел:" << std::endl;
+        std::cout << "Введите правую границу для генерации чисел:" << std::endl;
         getChoice(1, INT_MAX, max);
     }
     return true;

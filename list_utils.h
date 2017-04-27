@@ -1,5 +1,7 @@
 ﻿#pragma once
 
+void print_to_file(std::ofstream& file, std::list<double> list);
+
 //заполнение контейнера из файла
 std::list<double>& fill_container_with_numbers(std::fstream& file);
 
