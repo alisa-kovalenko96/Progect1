@@ -13,7 +13,7 @@ std::list<double>& fill_container_with_numbers(std::fstream& file) {
     std::list<double>* list = new std::list<double>();
     file.clear();
     file.seekg(0);
-    if (file.is_open())
+    if (bool b = file.is_open())
     {
         std::string line;
         int num;
@@ -26,10 +26,15 @@ std::list<double>& fill_container_with_numbers(std::fstream& file) {
             }
             catch (std::exception e) {}
         }
+		if (list->size() == 0) {
+			print_message("Cписок пуст.");
+		}
     }
-	if (list->size() == 0) {
-		print_message("Cписок пуст.");
+	else
+	{
+		print_message("Файл не найден.");
 	}
+
     return *list;
 }
 

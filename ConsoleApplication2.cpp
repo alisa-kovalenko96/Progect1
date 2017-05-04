@@ -14,6 +14,8 @@
 #include "file_utils.h"
 #include "help_utils.h"
 
+//some msg
+
 std::string file_name = "";
 std::fstream* file;
 
@@ -28,8 +30,9 @@ void print_menu(std::list<double> list)
 	std::cout << "5. Среднее арифметическое" << std::endl;
 	std::cout << "6. Вывод на экран" << std::endl;
 	std::cout << "0. Выход" << std::endl;
-	if (list.size() == 0) { std::cout << "Файл не найден." << std::endl; }
+	if (list.size() == 0) { std::cout << "Контейнер пуст." << std::endl; }
 }
+
 
 //функция главного меню с возвратом выбора
 int main_menu(std::list<double> list) {
